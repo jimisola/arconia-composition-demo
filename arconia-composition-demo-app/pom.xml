@@ -25,7 +25,7 @@
         <spring-boot.version>4.0.1</spring-boot.version>
         <!-- Force OpenTelemetry 1.57.0 to fix ExemplarFilter missing class issue -->
         <!-- Micrometer 1.6.1 brings in older 1.55.0 versions -->
-        <opentelemetry.version>1.57.0</opentelemetry.version>
+        <opentelemetry.version>1.66.0</opentelemetry.version>
         <!-- Maven 4 consumer POM handling for mixins: -->
         <!-- preserve.model.version=true → keep modelVersion 4.2.0, requires Maven 4 consumers (used for apps) -->
         <!-- maven.consumer.pom.flatten=true → flatten to Maven 3 compatible POM (use for published libraries)
