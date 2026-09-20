@@ -13,7 +13,7 @@
     <description>Maven Mixin for Arconia observability configuration (OpenTelemetry + LGTM stack)</description>
 
     <properties>
-        <arconia.version>0.21.0</arconia.version>
+        <arconia.version>0.30.0</arconia.version>
         <!-- Spring Boot version should be set by consuming project -->
         <spring-boot.version>4.0.0</spring-boot.version>
     </properties>
