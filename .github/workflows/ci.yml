@@ -29,11 +29,6 @@ jobs:
         working-directory: arconia-composition-demo-app
         run: ./gradlew test integrationTest
 
-      # Mirrors run-with-maven.sh, minus starting the application.
-      - name: Maven mixins
-        run: |
-          (cd redis-spring-boot-maven-mixin && ./mvnw -B clean install)
-          (cd observability-spring-boot-maven-mixin && ./mvnw -B clean install)
-      - name: Maven app tests
-        working-directory: arconia-composition-demo-app
-        run: ./mvnw -B test
+      # Maven is not built here: the app pom needs modelVersion 4.2.0, newer than any
+      # released Maven, and the 4.1.0-SNAPSHOT its wrapper pins is gone from the
+      # snapshot repository. Add it back once Maven publishes a release that reads it.
