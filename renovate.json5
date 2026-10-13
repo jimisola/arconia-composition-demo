@@ -1,0 +1,39 @@
+// Adapted from reqstool/.github's shared Renovate preset.
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+
+  extends: [
+    "config:recommended",
+    ":semanticCommits",
+  ],
+
+  semanticCommitType: "chore",
+  semanticCommitScope: "{{datasource}}",
+
+  automergeType: "pr",
+  // Stays false until main has a ruleset requiring the `build` check; with it
+  // true and nothing required, GitHub merges the PR the moment it opens.
+  platformAutomerge: false,
+
+  dependencyDashboard: false,
+  prConcurrentLimit: 10,
+  prHourlyLimit: 5,
+
+  separateMajorMinor: true,
+  separateMultipleMajor: true,
+
+  packageRules: [
+    // Majors and digests are manual; minor, patch and pin automerge after a soak.
+    { matchUpdateTypes: ["major"], minimumReleaseAge: "7 days" },
+    { matchUpdateTypes: ["minor"], automerge: true, minimumReleaseAge: "3 days" },
+    { matchUpdateTypes: ["patch"], automerge: true, minimumReleaseAge: "3 days" },
+    { matchUpdateTypes: ["pin"], automerge: true },
+
+    // Parent, BOM, Gradle plugin and starter move together; split PRs leave
+    // the build with mismatched Spring Boot versions.
+    {
+      matchPackageNames: ["org.springframework.boot", "/^org\\.springframework\\.boot:/"],
+      groupName: "spring boot",
+    },
+  ],
+}
