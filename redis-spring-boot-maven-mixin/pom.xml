@@ -14,7 +14,7 @@
 
     <properties>
         <arconia.version>0.21.0</arconia.version>
-        <testcontainers-redis.version>2.2.2</testcontainers-redis.version>
+        <testcontainers-redis.version>2.2.4</testcontainers-redis.version>
         <!-- Spring Boot version should be set by consuming project -->
         <spring-boot.version>4.0.0</spring-boot.version>
     </properties>
